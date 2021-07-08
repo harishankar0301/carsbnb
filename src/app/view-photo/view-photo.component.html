@@ -1,0 +1,24 @@
+<div class="container flex-container">
+    <h1 class="mb-3 text-center">Hi {{emailid1}}</h1>
+    <img [src]="imageURL" alt="" class="img-thumbnail img-fluid">
+
+</div>
+<div class="container mt-3">
+    <h1 class="text-center">
+        List of cars rented by you
+    </h1>
+    <h3 class="text-center">View and choose which car to return</h3>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+        <div *ngFor="let car of carlist" class="col">
+            <div class="card h-100">
+                <img [src]="car.pic" alt="car" class="card-img-top">
+                <div class="card-body d-flex flex-column justify-content-end p-2">
+                    <h5 class="card-title text-center text-uppercase">{{car.model}}</h5>
+                    <p class="card-text">Price: ₹{{car.price}}/week</p>
+                    <button class="btn btn-primary" (click)="returncar(car.uid)">Return</button>
+                    <!-- <button *ngIf="car.isrented=='1'" class="btn btn-secondary" disabled>Booked</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
