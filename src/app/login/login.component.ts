@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Router } from '@angular/router'
+import { environment } from 'src/environments/environment';
+let backEndUrl = environment.apiUrl;
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,7 +17,7 @@ export class LoginComponent implements OnInit {
   submitform(form) {
   
     console.log(form.value);
-    this.http.post('http://localhost:3000/api/loginv', { email: form.value.emailId, password: form.value.password }).subscribe(res => {
+    this.http.post(`${backEndUrl}/api/loginv`, { email: form.value.emailId, password: form.value.password }).subscribe(res => {
       console.log(res);
       if (res['resp'] == "AUTHORIZED") {
         this.router.navigate([`/listing`]);

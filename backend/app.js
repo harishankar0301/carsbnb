@@ -25,7 +25,7 @@ const orm = new Sequelize(
   process.env.DB_PASSWORD,
   {
     host: process.env.DB_HOST,
-     port: "3306",  // <----------------The port number you copied
+    port: process.env.DB_PORT,
     dialect: "mysql",
     dialectOptions: {
       //requestTimeout: 70000,

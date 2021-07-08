@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/3bc36f60-7cbd-46c1-ba97-3636763e36a8/resourceGroups/HackRG/providers/Microsoft.Web/sites/carsbnb",
+    "appService.deploySubpath": "."
+}

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Router } from '@angular/router'
+import { environment } from 'src/environments/environment';
+let backEndUrl = environment.apiUrl;
 
 @Component({
   selector: 'app-car-listing',
@@ -12,7 +14,7 @@ export class CarListingComponent implements OnInit {
 
   carlist = [];
   ngOnInit(): void {
-    this.http.get('http://localhost:3000/api/list').subscribe(res => {
+    this.http.get(`${backEndUrl}/api/list`).subscribe(res => {
       console.log(res);
 
       this.carlist = res['resp'];
@@ -28,7 +30,7 @@ export class CarListingComponent implements OnInit {
       this.router.navigate([`/login`]);
     }
     let modal = document.getElementById('bookingButton');
-    this.http.post('http://localhost:3000/api/book', { email: sessioninfo["email"], uid: uid }).subscribe(res => {
+    this.http.post(`${backEndUrl}/api/book`, { email: sessioninfo["email"], uid: uid }).subscribe(res => {
       console.log(res);
 
     })

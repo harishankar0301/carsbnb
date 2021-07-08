@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { DomSanitizer } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
+let backEndUrl = environment.apiUrl;
 @Component({
   selector: 'app-view-photo',
   templateUrl: './view-photo.component.html',
@@ -14,7 +16,7 @@ export class ViewPhotoComponent implements OnInit {
   imageURL = this.sanitizer.bypassSecurityTrustResourceUrl("data:image/png;base64, byblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxErkJggg==");
   ngOnInit(): void {
     let sessioninfo = JSON.parse(sessionStorage.getItem('info'));
-    this.http.get<{ resp: string }>(`http://localhost:3000/api/view/${sessioninfo["email"]}`).subscribe(
+    this.http.get<{ resp: string }>(`${backEndUrl}/api/view/${sessioninfo["email"]}`).subscribe(
       (res) => {
         console.log(res);
         this.imageURL = this.sanitizer.bypassSecurityTrustResourceUrl("data:image/png;base64," + res['resp']);
@@ -24,7 +26,7 @@ export class ViewPhotoComponent implements OnInit {
       (err) => console.log(err)
     );
 
-    this.http.get(`http://localhost:3000/api/rented/${sessioninfo["email"]}`).subscribe(
+    this.http.get(`${backEndUrl}/api/rented/${sessioninfo["email"]}`).subscribe(
       (res) => {
         console.log(res);
         this.carlist = res['resp'];
@@ -39,7 +41,7 @@ export class ViewPhotoComponent implements OnInit {
     let sessioninfo = JSON.parse(sessionStorage.getItem('info'));
    
    //let modal = document.getElementById('bookingButton');
-   this.http.post('http://localhost:3000/api/return', { email: sessioninfo["email"], uid: uid }).subscribe(res => {
+   this.http.post(`${backEndUrl}/api/return`, { email: sessioninfo["email"], uid: uid }).subscribe(res => {
      console.log(res);
 
    })
