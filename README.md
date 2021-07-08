@@ -1,6 +1,7 @@
-# HackathonAcm
+# Carsbnb
+A airbnb for cars. Easy to use car rental system.
 
-This project is a simple login system made using:
+# Tech stack
 Angular
 Node JS
 Mysql
@@ -8,3 +9,7 @@ Mysql
 # Structure:
 Outer folder has the angular part, backend folder has node code.
 Frontend folder inside backend folder has the built angular code so can be deployed easily just by coping the backend folder to the server.
+
+# Done by:
+Harishankar H
+Adhitya Raj
