@@ -2,9 +2,14 @@
 A airbnb for cars. Easy to use car rental system.
 
 # Tech stack
-Angular
-Node JS
-Mysql
+<ul>
+  <li>Angular</li>
+  <li>Node JS</li>
+  <li>Mysql</li>
+  </ul>
+<b>Live Demo:</b> Deploadyed in Azure app service (https://carsbnb.azurewebsites.net/) 
+
+Takes a few seconds for the initial load since the app maybe sleeping due to inactivity.
 
 # Structure:
 Outer folder has the angular part, backend folder has node code.
