@@ -16,9 +16,10 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { HomeComponent } from './home/home.component';
 import { CarListingComponent } from './car-listing/car-listing.component';
 import { NewCarComponent } from './new-car/new-car.component';
+import { CarDetailsComponent } from './car-details/car-details.component';
 @NgModule({
   declarations: [ 
-    AppComponent, NavbarComponent, SignupComponent, LoginComponent, UploadPhotoComponent, ViewPhotoComponent, ChangePasswordComponent, HomeComponent, CarListingComponent, NewCarComponent
+    AppComponent, NavbarComponent, SignupComponent, LoginComponent, UploadPhotoComponent, ViewPhotoComponent, ChangePasswordComponent, HomeComponent, CarListingComponent, NewCarComponent, CarDetailsComponent
   ],
   imports: [
     BrowserModule,

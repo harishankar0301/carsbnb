@@ -46,3 +46,5 @@ testem.log
 Thumbs.db
 /frontend
 /node_modules
+/.vscode
+.env

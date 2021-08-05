@@ -20,7 +20,10 @@ export class LoginComponent implements OnInit {
     this.http.post(`${backEndUrl}/api/loginv`, { email: form.value.emailId, password: form.value.password }).subscribe(res => {
       console.log(res);
       if (res['resp'] == "AUTHORIZED") {
-        this.router.navigate([`/listing`]);
+        this.router.navigate([`/listing`])
+          .then(() => {
+            window.location.reload();
+          });
         sessionStorage.setItem('info',JSON.stringify({email: form.value.emailId}))
 
       } else {

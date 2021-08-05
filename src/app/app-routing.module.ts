@@ -8,6 +8,7 @@ import { ViewPhotoComponent } from './view-photo/view-photo.component';
 import { HomeComponent } from './home/home.component';
 import { CarListingComponent } from './car-listing/car-listing.component';
 import { NewCarComponent } from './new-car/new-car.component';
+import { CarDetailsComponent } from './car-details/car-details.component';
 import { from } from 'rxjs';
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'logout', redirectTo: ''},
   { path: 'changepassword', component: ChangePasswordComponent },
   { path: 'addcar', component: NewCarComponent },
+  { path: 'car-details', component: CarDetailsComponent },
   { path: '**', component: HomeComponent }
 
 ];

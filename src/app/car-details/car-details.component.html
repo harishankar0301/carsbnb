@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-6 carImg">
+        <img [src]="selectedCar.pic" alt="car" class="card-img-top">
+
+     
+            <div class="bookButton">
+                <button *ngIf="selectedCar.isrented=='0'" class="btn btn-primary btn-lg"
+                (click)="booking(selectedCar.uid)">Book Now</button>
+            <button *ngIf="selectedCar.isrented=='1'" class="btn btn-secondary btn-lg" disabled>Booked</button>
+            </div>
+            
+        <!-- <div class="features">
+            <h3>Features</h3>
+            
+        </div> -->
+       
+    </div>
+
+    <div class="col-6 car-details">
+        <h1>{{selectedCar.model}}</h1>
+        <h2>Price: ₹{{selectedCar.price}}/day</h2>
+        <h2>Contact: {{selectedCar.owner}}</h2>
+        <div class="description">
+            <h4>Description</h4>
+            <p class>{{selectedCar.description}}</p>
+        </div>
+
+        <h3>Features</h3>
+        <ul *ngFor="let feature of selectedCar.features">
+            <li class="feature">{{feature}}</li>
+            
+        </ul>
+
+    </div>
+</div>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-backdrop="static" style="display: none;"
+    id="bookingButton" data-bs-target="#bookingConfirm">
+    Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="bookingConfirm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Booking Success!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                The car has been reserved for you. You can pay and rent the car by visiting the store.
+            </div>
+            <div class="modal-footer">
+                <a routerLink="/listing" type="button" class="btn btn-success" data-bs-dismiss="modal"
+                    (click)="okay_click()">Ok</a>
+            </div>
+        </div>
+    </div>
+</div>

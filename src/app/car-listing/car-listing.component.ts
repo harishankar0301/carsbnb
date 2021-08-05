@@ -41,5 +41,11 @@ export class CarListingComponent implements OnInit {
     window.location.reload();
   }
 
+  cardetails(car_uid) {
+    sessionStorage.setItem('selectedCar', JSON.stringify(car_uid));
+    console.log(car_uid);
+    this.router.navigate([`/car-details`]);
+  }
+
 
 }

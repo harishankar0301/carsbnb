@@ -34,10 +34,38 @@ module.exports = function (app) {
     app.get("/api/list", function (req, res) {
         orm.query(`select * from cars `, { type: QueryTypes.SELECT }).then(
             function (op) {
-                console.log(op);
                 res.send({ resp: op });
             }
         )
+    })
+
+    app.get("/api/specificCar/:id", function (req, res) {
+        orm.query(`select * from cars left join features on cars.uid=features.uid where cars.uid = ?`, {
+            type: QueryTypes.SELECT,
+            replacements: [req.params.id]
+        }).then(
+            function (features) {
+                let cardetails = features[0];
+                cardetails["features"] = [];
+                //Converting sql join ofoutput to array JSON of features of car
+                for (let i = 0; i < features.length; i++){
+                    cardetails.features.push(features[i].feature);
+                    
+                }
+                console.log(cardetails);
+                res.send({ resp: cardetails });
+            }
+        )
+
+        //  orm.query(`select uid,CONCAT('[', GROUP_CONCAT(feature), ']') as features from features GROUP by uid`, {
+        //     type: QueryTypes.SELECT,
+        // }).then(
+        //     function (op) {
+        //        console.log(op);
+        //         res.send({ resp: op[0] });
+        //     }
+        // )
+        
     })
 
     app.post("/api/book", function (req, res) {
@@ -45,7 +73,7 @@ module.exports = function (app) {
         let uid = req.body.uid;
 
         orm.query(`update cars set isrented=1 where uid='${uid}' `);
-        orm.query(`insert into rented values ('${uid}','${email}')`);
+        orm.query(`insert into rented (uid,email) values ('${uid}','${email}')`);
         res.send({ resp: "SUCCESS" });
     })
 

@@ -73,11 +73,6 @@ const db = orm.define("users", {
 })
 
 
-// db.findAll({
-//   attributes: ['image'],
-//   where: { 'email': "harishankar0301@gmail.com" }
-// }).then((data1) => { console.log(data1) });
-
 global.orm = orm;
 global.db = db;
 

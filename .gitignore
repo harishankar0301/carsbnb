@@ -47,3 +47,9 @@ Thumbs.db
 
 #uplods folder
 /backend/uploads
+
+#environments
+backend/.env
+backend/.vscode/settings.json
+
+backend/.env

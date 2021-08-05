@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://carsbnb.azurewebsites.net'
+  // apiUrl: 'https://carsbnb.azurewebsites.net',
+  apiUrl: 'http://localhost:3000',
 };
 
 /*

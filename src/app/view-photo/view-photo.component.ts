@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
+
 let backEndUrl = environment.apiUrl;
 @Component({
   selector: 'app-view-photo',
@@ -13,7 +14,7 @@ export class ViewPhotoComponent implements OnInit {
   constructor(private http: HttpClient, private sanitizer: DomSanitizer) { }
   carlist = [];
   emailid1 = JSON.parse(sessionStorage.getItem('info'))["email"];
-  imageURL = this.sanitizer.bypassSecurityTrustResourceUrl("data:image/png;base64, byblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxErkJggg==");
+  imageURL: SafeResourceUrl;
   ngOnInit(): void {
     let sessioninfo = JSON.parse(sessionStorage.getItem('info'));
     this.http.get<{ resp: string }>(`${backEndUrl}/api/view/${sessioninfo["email"]}`).subscribe(

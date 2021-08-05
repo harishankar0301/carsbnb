@@ -1,0 +1,11 @@
+.profile-photo img{
+    border-radius: 50%;
+
+}
+.img-thumbnail{
+    height: 167px;
+    width: 184px;
+}
+.profile-photo{
+    margin-top: -25px;
+}
